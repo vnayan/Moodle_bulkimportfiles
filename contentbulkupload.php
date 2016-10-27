@@ -5,7 +5,7 @@
  * Date: 6/10/16
  * Time: 3:12 PM
  */
-require_login();
+
 require(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
 require_once($CFG->libdir . '/coursecatlib.php');
@@ -21,7 +21,7 @@ $PAGE->set_url(new moodle_url('/tool/uploadcontent/contentbulkupload.php'));
 $PAGE->set_context(context_system::instance());
 $PAGE->set_pagelayout('admin');
 $PAGE->set_title('CSV upload');
-
+require_login();
 echo $OUTPUT->header();
 echo $OUTPUT->heading("Activity upload status");
 if($iid!='') {
