@@ -11,9 +11,6 @@ Features
     
     - categoryid,courseid,section number,file name and file url.
 
-- .
-
-
 Instalation
 -----------
 - Extract the content into your {Moodle root directory}/admin/tool/uploadcontent.
