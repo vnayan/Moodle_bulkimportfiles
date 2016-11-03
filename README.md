@@ -1,25 +1,24 @@
-Resource Bulk Upload
+Events Resource Bulk Upload
 ===========================
 
-Resource Bulk Upload is  a Moodle plugin to bulk upload resources to multiple courses.
-Upload a zip file and plugin will generate a csv document. Enter category, course and section id in the csv document. 
-On uploading CSV, files from the zip will be mapped to respective section of courses.
+The Events Resource Bulk Upload is  a Moodle plugin to bulk upload the resource to the course.
+It uploads the resource zip file and generate a csv file and after uploading CSV files the resource is assign to respective section of course.
 
 Features
 --------
 
-- Resource Bulk Upload- It upload the zip file of content(docs,pdf,video etc.) and generate a CSV files which contain the following information.
+- Content Bulk Upload- It upload the zip file of content(docs,pdf,video etc.) and generate a CSV files which contain the following information.
     
-    - file name and file path url.
-	
-- Enter the categoryid,courseid,section number in the CSV document where the content needs to be uploaded. 
+    - categoryid,courseid,section number,file name and file url.
+
+- .
 
 
 Instalation
 -----------
 - Extract the content into your {Moodle root directory}/admin/tool/uploadcontent.
 - Go to Notifications page.
-- Install the plugin and Enjoy.
+- Install the plugin and that's it.
 
 Requirements
 ------------
@@ -29,8 +28,6 @@ Requirements
 TODO
 ----
 This plugin is in ALPHA state of development, so there are more improvements to come:
-
- - Scouce file can be located in any repository which will be pulled and mapped. 
 
 
 License

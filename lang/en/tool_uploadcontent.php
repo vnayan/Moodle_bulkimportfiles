@@ -13,7 +13,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Strings for component 'tool_uploadcontent'.
  *
@@ -22,17 +21,17 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['allowdeletes'] = 'Allow delete';
+$string['allowdeletes'] = 'Allow deletes';
 $string['tool/uploadcontent:uploadcontent'] = 'Upload Content';
 $string['csvlebel'] = 'Upload CSV content file';
-$string['zipfilelebel']='Upload zip content file';
+$string['zipfilelebel'] = 'Upload zip content file';
 $string['csvdelimeter'] = 'CSV Delimeter';
 $string['zipcontenttab'] = 'Upload Content';
 $string['csvcontenttab'] = 'Upload Content CSV';
-$string['Contentheading']='Content Bulk Upload';
+$string['Contentheading'] = 'Content Bulk Upload';
 $string['encoding'] = 'Encoding';
 $string['preview'] = 'Preview Row';
 $string['upload'] = 'Upload';
 $string['allowdeletes_help'] = 'Whether the delete field is accepted or not';
-$string['pluginname'] = 'Content upload';
-$string['zipfilehelp']='This files must be an archive only';
+$string['pluginname'] = 'Content Upload';
+$string['zipfilehelp'] = 'This files must be an archive only';
