@@ -11,14 +11,11 @@ Features
     
     - categoryid,courseid,section number,file name and file url.
 
-- .
-
-
 Instalation
 -----------
 - Extract the content into your {Moodle root directory}/admin/tool/uploadcontent.
 - Go to Notifications page.
-- Install the plugin and that's it.
+- Install the plugin and have fun using it.
 
 Requirements
 ------------

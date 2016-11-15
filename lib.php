@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * Created by PhpStorm.
- * User: azri
+ * User: Nayan
  * Date: 4/10/16
  * Time: 12:50 PM
  */
@@ -29,14 +29,9 @@ function tool_uploadcontent_my_mktempdir($dir, $prefix='') {
     do {
         $path = $dir.$prefix.mt_rand(0, 9999999);
     } while (file_exists($path));
-
     check_dir_exists($path);
-
     return $path;
 }
-
-
-
 
 function tool_uploadcontent_print_tabs($selected, $inactive, $activated) {
     global $CFG;
@@ -51,7 +46,6 @@ function tool_uploadcontent_print_tabs($selected, $inactive, $activated) {
     $tabs[] = $bottomrow;
 
     print_tabs($tabs, $selected, $inactive, $activated);
-
 }
 function tool_uploadcontent_check_course_capability($courseid) {
     global $CFG, $USER;
@@ -59,15 +53,14 @@ function tool_uploadcontent_check_course_capability($courseid) {
     if (has_capability('moodle/course:manageactivities', $coursecontext, $USER->id)) {
         return true;
     } else {
-        return false;
+		return false;
     }
-
 }
 
 function tool_uploadcontent_validate_category($categoryid) {
     global $DB;
     if ($DB->record_exists('course_categories', array('id' => $categoryid))) {
-              return true;
+		return true;
     }
     return false;
 }
@@ -148,5 +141,4 @@ function tool_uploadcontent_add_resourse_to_course($fileinfo) {
         print($e);
         die();
     }
-
 }

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * Name: CSV file upload
- * Auther: Sushil Kumar Yadav
+ * Auther: Nayan
  * Date: 4/10/16
  * Time: 12:48 PM
  */
@@ -36,12 +36,9 @@ $flag = 1;
 $selected[] = "arc";
 $inactive[] = "";
 $activated[] = "arc";
-$filecolumns = array('category', 'course', 'topic',
-  'filename', 'file url'
-);
+$filecolumns = array('category', 'course', 'topic', 'filename', 'file url');
 $previewrows = optional_param('previewrows', 10, PARAM_INT);
 $returnurl = new moodle_url('admin/tool/uploadcontent/content.php');
-
 $PAGE->set_url(new moodle_url('/tool/uploadcontent/content.php'));
 $PAGE->set_context($context);
 $PAGE->set_pagelayout('admin');

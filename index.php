@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * Created by PhpStorm.
- * User: Sushil
+ * User: Nayan
  * Date: 4/10/16
  * Time: 12:48 PM
  */
@@ -79,12 +79,8 @@ if ($fromform = $mform1->get_data()) {
             }
                @unlink($dstfile);
                $csvexporter->download_file();
-
-
         }
-
     }
-
 }
 echo $OUTPUT->header();
 echo $OUTPUT->heading(get_string('Contentheading', 'tool_uploadcontent'));
