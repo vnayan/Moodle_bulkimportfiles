@@ -22,7 +22,7 @@
  */
 
 $string['allowdeletes'] = 'Allow deletes';
-$string['tool/uploadcontent:uploadcontent'] = 'Upload Content';
+$string['uploadcontent:uploadcontent'] = 'Upload Content';
 $string['csvlebel'] = 'Upload CSV content file';
 $string['zipfilelebel'] = 'Upload zip content file';
 $string['csvdelimeter'] = 'CSV Delimeter';

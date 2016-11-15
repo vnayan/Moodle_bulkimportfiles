@@ -19,12 +19,10 @@
  * Date: 4/10/16
  * Time: 12:50 PM
  */
+
 require_once("$CFG->libdir/filestorage/file_storage.php");
-
 require_once($CFG->dirroot.'/course/modlib.php');
-
-
-function my_mktempdir($dir, $prefix='') {
+function tool_uploadcontent_my_mktempdir($dir, $prefix='') {
     if (substr($dir, -1) != '/') {
         $dir .= '/';
     }
@@ -40,7 +38,7 @@ function my_mktempdir($dir, $prefix='') {
 
 
 
-function tool_uploadactivity_print_tabs($selected, $inactive, $activated) {
+function tool_uploadcontent_print_tabs($selected, $inactive, $activated) {
     global $CFG;
     $arsurl = $CFG->wwwroot.'/admin/tool/uploadcontent/index.php';
     $arcurl = $CFG->wwwroot.'/admin/tool/uploadcontent/content.php';
@@ -55,8 +53,18 @@ function tool_uploadactivity_print_tabs($selected, $inactive, $activated) {
     print_tabs($tabs, $selected, $inactive, $activated);
 
 }
+function tool_uploadcontent_check_course_capability($courseid) {
+    global $CFG, $USER;
+    $coursecontext = context_course::instance($courseid);
+    if (has_capability('moodle/course:manageactivities', $coursecontext, $USER->id)) {
+        return true;
+    } else {
+        return false;
+    }
 
-function validate_category($categoryid) {
+}
+
+function tool_uploadcontent_validate_category($categoryid) {
     global $DB;
     if ($DB->record_exists('course_categories', array('id' => $categoryid))) {
               return true;
@@ -64,7 +72,7 @@ function validate_category($categoryid) {
     return false;
 }
 
-function validate_course($courseid) {
+function tool_uploadcontent_validate_course($courseid) {
     global $DB;
     if ($DB->record_exists('course', array('id' => $courseid))) {
         return true;
@@ -72,7 +80,7 @@ function validate_course($courseid) {
     return false;
 }
 
-function validate_url($url, $filename) {
+function tool_uploadcontent_validate_url($url, $filename) {
     global $CFG;
     $url = $CFG->dataroot."/filedir".$url.$filename;
     if (file_exists($url)) {
@@ -81,7 +89,7 @@ function validate_url($url, $filename) {
     return false;
 }
 
-function add_resourse_to_course($fileinfo) {
+function tool_uploadcontent_add_resourse_to_course($fileinfo) {
     global $DB, $CFG;
     try {
         $modinfo = new stdClass();

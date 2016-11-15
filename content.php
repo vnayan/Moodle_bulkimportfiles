@@ -28,6 +28,9 @@ require_once('content_form.php');
 require_once($CFG->libdir.'/gdlib.php');
 require_once('lib.php');
 global $DB, $CFG;
+$context = context_system::instance();
+admin_externalpage_setup('tooluploadcontent');
+require_capability('tool/uploadcontent:uploadcontent', $context);
 $override = true;
 $flag = 1;
 $selected[] = "arc";
@@ -40,7 +43,7 @@ $previewrows = optional_param('previewrows', 10, PARAM_INT);
 $returnurl = new moodle_url('admin/tool/uploadcontent/content.php');
 
 $PAGE->set_url(new moodle_url('/tool/uploadcontent/content.php'));
-$PAGE->set_context(context_system::instance());
+$PAGE->set_context($context);
 $PAGE->set_pagelayout('admin');
 $PAGE->set_title('CSV upload');
 require_login();
@@ -99,7 +102,7 @@ if ($fromform = $mform1->get_data()) {
 if ($flag) {
     echo $OUTPUT->header();
     echo $OUTPUT->heading(get_string('Contentheading' , 'tool_uploadcontent'));
-    tool_uploadactivity_print_tabs($selected, $inactive, $activated);
+    tool_uploadcontent_print_tabs($selected, $inactive, $activated);
     $mform1->display();
 }
 echo $OUTPUT->footer();

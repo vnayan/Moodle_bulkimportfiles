@@ -23,8 +23,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-if ($hassiteconfig) {
-    $ADMIN->add('courses', new admin_externalpage('tooluploadcontent', get_string('zipcontenttab', 'tool_uploadcontent'),
-      "$CFG->wwwroot/$CFG->admin/tool/uploadcontent/index.php"));
-}
+
+$ADMIN->add('courses', new admin_externalpage('tooluploadcontent', get_string('zipcontenttab', 'tool_uploadcontent'),
+ "$CFG->wwwroot/$CFG->admin/tool/uploadcontent/index.php", 'tool/uploadcontent:uploadcontent' ));
+
 

@@ -48,10 +48,15 @@ if ($iid != '') {
         foreach ($fields as $key => $field) {
               $rowcols[] = s(trim($field));
         }
-        if (validate_category($rowcols[0])) {
-            if (validate_course($rowcols[1])) {
-                if (validate_url($rowcols[4], $rowcols[3])) {
-                    add_resourse_to_course($rowcols);
+        if (tool_uploadcontent_validate_category($rowcols[0])) {
+            if (tool_uploadcontent_validate_course($rowcols[1])) {
+                if (tool_uploadcontent_validate_url($rowcols[4], $rowcols[3])) {
+                    if (tool_uploadcontent_check_course_capability($rowcols[1])) {
+                        tool_uploadcontent_add_resourse_to_course($rowcols);
+                    } else {
+                        $rowcols[] = "Permission Denied";
+                        $data[] = $rowcols;
+                    }
                 } else {
                     $rowcols[] = "Invalid  url";
                     $data[] = $rowcols;
