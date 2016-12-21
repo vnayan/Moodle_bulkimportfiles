@@ -19,3 +19,4 @@ $plugin->version    = 2016052300;
 $plugin->requires   = 2015052300;
 $plugin->component  = 'tool_uploadcontent';
 $plugin->maturity = MATURITY_STABLE;
+$plugin->release = 'v3.0-r1';
