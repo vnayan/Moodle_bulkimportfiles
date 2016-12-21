@@ -41,8 +41,8 @@ $previewrows = optional_param('previewrows', 10, PARAM_INT);
 $returnurl = new moodle_url('admin/tool/uploadcontent/content.php');
 $PAGE->set_url(new moodle_url('/tool/uploadcontent/content.php'));
 $PAGE->set_context($context);
-$PAGE->set_pagelayout('admin');
-$PAGE->set_title('CSV upload');
+$PAGE->set_pagelayout(get_string('pagelayout' , 'tool_uploadcontent'));
+$PAGE->set_title(get_string('title' , 'tool_uploadcontent'));
 require_login();
 $mform1 = new tool_uploadcontent_content_form();
 if ($fromform = $mform1->get_data()) {
@@ -72,23 +72,22 @@ if ($fromform = $mform1->get_data()) {
     }
 
     if ($fields = $cir->next()) {
-        $data[] = array_fill(0, count($fields) + 2, '...');
+        $data[] = array_fill(0, count($fields) +2, '...');
     }
     $cir->close();
     $PAGE->set_url(new moodle_url('/tool/uploadcontent/content.php'));
     $PAGE->set_context(context_system::instance());
-    $PAGE->set_pagelayout('admin');
-    $PAGE->set_title('CSV upload');
+    $PAGE->set_pagelayout(get_string('pagelayout' , 'tool_uploadcontent'));
+    $PAGE->set_title(get_string('title' , 'tool_uploadcontent'));
     echo $OUTPUT->header();
-    echo $OUTPUT->heading("Activity upload preview");
+    echo $OUTPUT->heading(get_string('heading' , 'tool_uploadcontent'));
     $table = new html_table();
-    $table->id = "uupreview";
-    $table->attributes['class'] = 'generaltable';
-    $table->tablealign = 'center';
-    $table->summary = get_string('uploaduserspreview', 'tool_uploaduser');
+    $table->id = get_string('tableid' , 'tool_uploadcontent');
+    $table->attributes['class'] = get_string('tableclass' , 'tool_uploadcontent');
+    $table->tablealign = get_string('tablealign' , 'tool_uploadcontent');
     $table->head = array();
     $table->data = $data;
-    $table->head[] = "Line number";
+    $table->head[] = get_string('line' , 'tool_uploadcontent');
     foreach ($filecolumns as $column) {
         $table->head[] = $column;
     }
