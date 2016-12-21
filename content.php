@@ -72,7 +72,7 @@ if ($fromform = $mform1->get_data()) {
     }
 
     if ($fields = $cir->next()) {
-        $data[] = array_fill(0, count($fields) +2, '...');
+        $data[] = array_fill(0, count($fields) + 2, '...');
     }
     $cir->close();
     $PAGE->set_url(new moodle_url('/tool/uploadcontent/content.php'));
