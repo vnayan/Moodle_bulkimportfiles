@@ -51,17 +51,17 @@ function tool_uploadcontent_check_course_capability($courseid) {
     global $CFG, $USER;
     $coursecontext = context_course::instance($courseid);
     if (has_capability('moodle/course:manageactivities', $coursecontext, $USER->id)) {
-    return true;
-    } 
+        return true;
+    }
 	else {
-	return false;
+        return false;
     }
 }
 
 function tool_uploadcontent_validate_category($categoryid) {
     global $DB;
     if ($DB->record_exists('course_categories', array('id' => $categoryid))) {
-	return true;
+        return true;
     }
     return false;
 }
