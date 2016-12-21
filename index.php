@@ -69,7 +69,7 @@ if ($fromform = $mform1->get_data()) {
                     $filename = $key;
                 }
                  $fileurl = $zipdir.'/'.$key;
-                 $baselength=strlen($CFG->dataroot."/filedir");
+                 $baselength = strlen($CFG->dataroot."/filedir");
                  $fileurl = substr($fileurl, $baselength);
                  $fileurl = str_replace($filename, "", $fileurl);
                  $record = array('', '', '', $filename, $fileurl);
