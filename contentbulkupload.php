@@ -21,6 +21,7 @@
  */
 require(__DIR__ . '/../../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
+require_once($CFG->libdir . '/moodlelib.php');
 require_once($CFG->libdir . '/coursecatlib.php');
 require_once($CFG->libdir . '/csvlib.class.php');
 require_once($CFG->libdir.'/formslib.php');
@@ -32,11 +33,11 @@ $filecolumns = array('category', 'course', 'topic', 'filename', 'file url');
 $iid = optional_param('iid', '', PARAM_TEXT);
 $PAGE->set_url(new moodle_url('/tool/uploadcontent/contentbulkupload.php'));
 $PAGE->set_context(context_system::instance());
-$PAGE->set_pagelayout('admin');
-$PAGE->set_title('CSV upload');
+$PAGE->set_pagelayout(get_string('pagelayout' , 'tool_uploadcontent'));
+$PAGE->set_title(get_string('title' , 'tool_uploadcontent'));
 require_login();
 echo $OUTPUT->header();
-echo $OUTPUT->heading("Activity upload status");
+echo $OUTPUT->heading(get_string('uploadstatus' , 'tool_uploadcontent'));
 if ($iid != '') {
     $cir = new csv_import_reader($iid, 'uploadcontent');
     $cir->init();
@@ -54,44 +55,44 @@ if ($iid != '') {
                     if (tool_uploadcontent_check_course_capability($rowcols[1])) {
                         tool_uploadcontent_add_resourse_to_course($rowcols);
                     } else {
-                        $rowcols[] = "Permission Denied";
+                        $rowcols[] = get_string('permissiondenied' , 'tool_uploadcontent');
                         $data[] = $rowcols;
                     }
                 } else {
-                    $rowcols[] = "Invalid  url";
+                    $rowcols[] = get_string('invalidurl' , 'tool_uploadcontent');
                     $data[] = $rowcols;
                 }
 
             } else {
-                  $rowcols[] = "Invalid course";
+                  $rowcols[] = get_string('invalidcourse' , 'tool_uploadcontent');
                   $data[] = $rowcols;
             }
         } else {
-            $rowcols[] = "Invalid category";
+            $rowcols[] = get_string('invalidcategory' , 'tool_uploadcontent');
             $data[] = $rowcols;
         }
     }
 
     if (!empty($data)) {
         $table = new html_table();
-        $table->id = "uupreview";
-        $table->attributes['class'] = 'generaltable';
-        $table->tablealign = 'center';
+        $table->id = get_string('tableid' , 'tool_uploadcontent');
+        $table->attributes['class'] = get_string('tableclass' , 'tool_uploadcontent');
+        $table->tablealign = get_string('tablealign' , 'tool_uploadcontent');
         $table->summary = get_string('uploadcontentspreview', 'tool_uploadcontent');
         $table->head = array();
         $table->data = $data;
-        $table->head[] = "Line number";
+        $table->head[] = get_string('line' , 'tool_uploadcontent');
         foreach ($filecolumns as $column) {
             $table->head[] = $column;
         }
         $table->head[] = get_string('status');
         echo html_writer::tag('div', html_writer::table($table), array('class' => 'flexible-wrap'));
     }
-    echo html_writer::start_span('status') . 'Your resource is successfully updated in respective details. ' .
-      html_writer::link(new moodle_url('/admin/tool/uploadcontent/content.php'), 'Click').
-      ' Here to go content bulk upload page.'.html_writer::end_span();
+    echo html_writer::start_span('status') . get_string('successstatus' , 'tool_uploadcontent') .
+      html_writer::link(new moodle_url('/admin/tool/uploadcontent/content.php'), 'Click'). get_string('substring' , 'tool_uploadcontent')
+      .html_writer::end_span();
     $temppath = explode('/' , $rowcols[4]);
     $path = $CFG->dataroot."/filedir".$temppath[0]."/".$temppath[1]."/".$temppath[2]."/";
-    exec("rm -rf {$path}");
+    remove_dir($path);
 }
 echo $OUTPUT->footer();

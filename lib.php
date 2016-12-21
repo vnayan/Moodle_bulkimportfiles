@@ -103,13 +103,13 @@ function tool_uploadcontent_add_resourse_to_course($fileinfo) {
         $modinfo->coursemodule = '';
         $modinfo->section = $fileinfo[2];
         $modinfo->module = 17;
-        $modinfo->modulename = "resource";
+        $modinfo->modulename = get_string('resource' , 'tool_uploadcontent');
         $modinfo->instance = '';
-        $modinfo->add = "resource";
+        $modinfo->add = get_string('resource' , 'tool_uploadcontent');
         $modinfo->update = 0;
         $modinfo->return = 0;
         $modinfo->sr = 0;
-        $modinfo->submitbutton2 = "Save and return to course";
+        $modinfo->submitbutton2 = get_string('save' , 'tool_uploadcontent');
         $modinfo->revision = 1;
         $modinfo->groupingid = 0;
         $modinfo->completion = 0;
@@ -131,7 +131,7 @@ function tool_uploadcontent_add_resourse_to_course($fileinfo) {
         $fileinfos = array(
           'contextid' => $filerecord->contextid,
           'component' => 'mod_resource',
-          'filearea' => 'content',
+          'filearea' => get_string('content' , 'tool_uploadcontent'),
           'itemid' => 0,
           'filepath' => '/',
           'filename' => $fileinfo[3]

@@ -38,7 +38,7 @@ $inactive[] = "";
 $activated[] = "ars";
 $PAGE->set_url(new moodle_url('/tool/uploadcontent/index.php'));
 $PAGE->set_context($context);
-$PAGE->set_pagelayout('admin');
+$PAGE->set_pagelayout(get_string('pagelayout' , 'tool_uploadcontent'));
 require_login();
 $mform1 = new tool_uploadcontent_step_form();
 if ($fromform = $mform1->get_data()) {
