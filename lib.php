@@ -52,11 +52,10 @@ function tool_uploadcontent_check_course_capability($courseid) {
     $coursecontext = context_course::instance($courseid);
     if (has_capability('moodle/course:manageactivities', $coursecontext, $USER->id)) {
         return true;
+    } else {
+    return false;
     }
-	else {
-        return false;
-    }
-}
+	}
 
 function tool_uploadcontent_validate_category($categoryid) {
     global $DB;
